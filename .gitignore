@@ -4,6 +4,7 @@
 .env.*.local
 backend/token.json
 **/token.json
+backend/data/
 
 # --- backend (Python) ---
 backend/venv/

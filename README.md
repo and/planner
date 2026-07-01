@@ -59,6 +59,13 @@ Visit `http://localhost:3000`. It talks to the backend at the URL set in
   wired into the prompt).
 - `POST /api/plan/push-to-todoist` — writes a generated plan back into
   Todoist as tasks with due dates.
+- `GET /api/plan/wallpaper` — renders the most recently generated plan as a
+  bird's-eye PNG (7-day grid, colored by interest area) sized for a phone
+  lock screen. 404s until `POST /api/plan` has run at least once (the plan
+  is cached to `backend/data/latest_plan.json`, gitignored). Meant to be
+  polled by a device-side automation rather than the frontend — on Android,
+  a Tasker profile ("HTTP Request" → save PNG → "Set Wallpaper", scoped to
+  the lock screen) is the simplest way to keep it fresh without a native app.
 
 ## Concepts practiced so far
 - Structured output via forced tool-use (`app/services/planner.py`)
